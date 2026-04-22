@@ -1,0 +1,70 @@
+{
+  "cortex-debug.stm32cubeprogrammer": "C:/ST/STM32CubeCLT_1.19.0/STM32CubeProgrammer/bin",
+  "cmake.generator": "Ninja",
+
+  "cmake.options.statusBarVisibility": "hidden",
+  "cmake.options.advanced": {
+    "build": {
+      "statusBarVisibility": "inherit"
+    },
+    "configure": {
+      "statusBarVisibility": "visible"
+    },
+    "launch": {
+      "statusBarVisibility": "inherit"
+    },
+    "debug": {
+      "statusBarVisibility": "inherit"
+    }
+  },
+
+  "VsCodeTaskButtons.tasks": [
+    {
+      "label": "$(run) Run",
+      "task": "Build + Flash",
+      "tooltip": "Clean rebuild, flash to STM32 and start execution"
+    },
+    {
+      "label": "$(debug-restart-frame) CMake: Clean rebuild",
+      "task": "CMake: Clean rebuild",
+      "tooltip": "Clean and rebuild project using CMake"
+    },
+    {
+      "label": "$(desktop-download) STM32Prog: Flash",
+      "task": "STM32Prog: Flash project (SWD)",
+      "tooltip": "Flash current ELF to STM32 via SWD"
+    },
+    {
+      "label": "$(close) STM32Prog: Full erase",
+      "task": "STM32Prog: Full chip erase",
+      "tooltip": "Perform full chip erase via SWD"
+    },
+    {
+      "label": "$(list) STM32Prog: List",
+      "task": "STM32Prog: List interfaces",
+      "tooltip": "List available STM32 programmer interfaces"
+    },
+    {
+      "label": "$(output) CMake: Configure",
+      "task": "CMake: Configure",
+      "tooltip": "Run CMake configure using active preset"
+    }
+  ],
+
+  "cortex-debug.variableUseNaturalFormat": false,
+
+  "files.associations": {
+    "cmath": "cpp",
+    "deque": "cpp",
+    "list": "cpp",
+    "sint.h": "c",
+    "arm_math.h": "c",
+    "array": "cpp",
+    "string_view": "cpp",
+    "initializer_list": "cpp",
+    "string": "cpp",
+    "iosfwd": "cpp",
+    "limits": "cpp",
+    "streambuf": "cpp"
+  }
+}

@@ -1,0 +1,79 @@
+# ================================
+# Project basic configuration
+# ================================
+
+# Имя проекта (если не задано Preset'ом)
+if(NOT DEFINED prj_name)
+	get_filename_component(prj_name "${CMAKE_CURRENT_SOURCE_DIR}" NAME)
+endif()
+
+set(PROJECT_NAME ${prj_name})
+set(VER 3.0)
+set(DESC "Base for STM32 cmake")
+
+# ================================
+# MCU chip selection
+# ================================
+# DEVICE = полноценный код чипа
+# Пример: STM32F446RE, STM32F103C8, STM32G431KB
+set(DEVICE "STM32F446re")
+
+# ================================
+# Core MCU flags, CPU, instruction set and FPU setup
+# ================================
+set(cpu_PARAMS
+	# main cpu PARAMS
+	-mcpu=cortex-m4
+	-mthumb
+	-mfpu=fpv4-sp-d16
+	-mfloat-abi=hard
+	# Other parameters
+)
+
+# ================================
+# Compiler options 
+# ================================
+set(compiler_OPTS	# => target_compile_options
+
+)
+
+# ================================
+# Linker options
+# ================================
+set(linker_OPTS 	# => target_link_options
+)
+
+# ================================
+# Sources
+# ================================
+set(sources_SRCS
+	${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
+
+
+)
+
+# ================================
+# Include directories
+# ================================
+set(include_DIRS
+	${CMAKE_CURRENT_SOURCE_DIR}/inc
+)
+
+if(USE_DRIVERS)
+	list(APPEND include_DIRS
+		${CMAKE_CURRENT_SOURCE_DIR}/Drivers/src
+	)
+endif()
+
+# ================================
+# Extra user defines (если нужны)
+# ================================
+set(symbols_c_SYMB "")
+set(symbols_cxx_SYMB "")
+set(symbols_asm_SYMB "")
+
+# ================================
+# Extra user options / libs
+# ================================
+set(link_DIRS "")
+set(link_LIBS "")

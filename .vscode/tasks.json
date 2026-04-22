@@ -1,0 +1,123 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+
+    // ======================================================
+    // CMake tasks
+    // ======================================================
+
+    {
+      "type": "cmake",
+      "label": "CMake: Build",
+      "command": "build",
+      "targets": [
+        "all"
+      ],
+      "preset": "${command:cmake.activeBuildPresetName}",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "Build project using active CMake build preset"
+    },
+
+    {
+      "type": "cmake",
+      "label": "CMake: Clean rebuild",
+      "command": "cleanRebuild",
+      "preset": "${command:cmake.activeBuildPresetName}",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "Clean and rebuild project using active CMake build preset"
+    },
+
+    {
+      "type": "cmake",
+      "label": "CMake: Clean",
+      "command": "clean",
+      "preset": "${command:cmake.activeBuildPresetName}",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "Clean build artifacts (cmake --build --target clean)"
+    },
+
+    {
+      "type": "cmake",
+      "label": "CMake: Configure",
+      "command": "configure",
+      "preset": "${command:cmake.activeConfigurePresetName}",
+      "problemMatcher": [],
+      "detail": "Configure project using active CMake configure preset"
+    },
+
+    // ======================================================
+    // STM32 Programmer CLI tasks
+    // ======================================================
+
+    {
+      "type": "shell",
+      "label": "STM32Prog: List interfaces",
+      "command": "STM32_Programmer_CLI.exe",
+      "args": [
+        "--list"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "detail": "List available STM32 programmer interfaces"
+    },
+
+    {
+      "type": "shell",
+      "label": "STM32Prog: Flash project (SWD)",
+      "command": "STM32_Programmer_CLI.exe",
+      "args": [
+        "--connect",
+        "port=swd",
+        "--download",
+        "${command:cmake.launchTargetPath}",
+        "-hardRst",
+        "--start"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "detail": "Flash current CMake launch target via SWD and start execution"
+    },
+
+    {
+      "type": "shell",
+      "label": "STM32Prog: Full chip erase",
+      "command": "STM32_Programmer_CLI.exe",
+      "args": [
+        "--connect",
+        "port=swd",
+        "--erase",
+        "all"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "detail": "Perform full chip erase via SWD"
+    },
+
+    // ======================================================
+    // Combined tasks
+    // ======================================================
+
+    {
+      "type": "shell",
+      "label": "Build + Flash",
+      "command": "echo Build and flash",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "CMake: Build",
+        "STM32Prog: Flash project (SWD)"
+      ],
+      "problemMatcher": [],
+      "detail": "Clean rebuild project and flash it to STM32"
+    }
+
+  ]
+}

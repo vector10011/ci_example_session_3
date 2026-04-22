@@ -1,0 +1,17 @@
+stages: [test]
+
+default:
+  image: checker-stm
+  tags: [student_runner]
+  artifacts:
+    when: always
+    access: maintainer
+    paths: [artifacts/]
+    reports:
+      junit: artifacts/junit.xml
+    expire_in: 7 days
+
+test:
+  stage: test
+  script:
+    - ./run.sh
