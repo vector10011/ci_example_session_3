@@ -13,7 +13,6 @@
       "targets": [
         "all"
       ],
-      "preset": "${command:cmake.activeBuildPresetName}",
       "group": "build",
       "problemMatcher": [],
       "detail": "Build project using active CMake build preset"
@@ -23,7 +22,6 @@
       "type": "cmake",
       "label": "CMake: Clean rebuild",
       "command": "cleanRebuild",
-      "preset": "${command:cmake.activeBuildPresetName}",
       "group": "build",
       "problemMatcher": [],
       "detail": "Clean and rebuild project using active CMake build preset"
@@ -33,7 +31,6 @@
       "type": "cmake",
       "label": "CMake: Clean",
       "command": "clean",
-      "preset": "${command:cmake.activeBuildPresetName}",
       "group": "build",
       "problemMatcher": [],
       "detail": "Clean build artifacts (cmake --build --target clean)"
@@ -43,7 +40,6 @@
       "type": "cmake",
       "label": "CMake: Configure",
       "command": "configure",
-      "preset": "${command:cmake.activeConfigurePresetName}",
       "problemMatcher": [],
       "detail": "Configure project using active CMake configure preset"
     },
@@ -75,7 +71,7 @@
         "port=swd",
         "--download",
         "${command:cmake.launchTargetPath}",
-        "-hardRst",
+        // "-hardRst",
         "--start"
       ],
       "options": {
