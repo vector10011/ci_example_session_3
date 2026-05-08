@@ -22,7 +22,7 @@
     {
       "label": "$(run) Run",
       "task": "Build + Flash",
-      "tooltip": "Clean rebuild, flash to STM32 and start execution"
+      "tooltip": "Clean rebuild, flash to STM32 and start"
     },
     {
       "label": "$(debug-restart-frame) CMake: Clean rebuild",
