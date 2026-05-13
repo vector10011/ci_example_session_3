@@ -1,5 +1,5 @@
 {
-  "cortex-debug.stm32cubeprogrammer": "C:/ST/STM32CubeCLT_1.19.0/STM32CubeProgrammer/bin",
+  "cortex-debug.stm32cubeprogrammer": "/opt/ST/STM32CubeCLT_1.19.0/STM32CubeProgrammer/bin",
   "cmake.generator": "Ninja",
 
   "cmake.options.statusBarVisibility": "hidden",

@@ -51,7 +51,7 @@
     {
       "type": "shell",
       "label": "STM32Prog: List interfaces",
-      "command": "STM32_Programmer_CLI.exe",
+      "command": "STM32_Programmer_CLI",
       "args": [
         "--list"
       ],
@@ -65,7 +65,7 @@
     {
       "type": "shell",
       "label": "STM32Prog: Flash project (SWD)",
-      "command": "STM32_Programmer_CLI.exe",
+      "command": "STM32_Programmer_CLI",
       "args": [
         "--connect",
         "port=swd",
@@ -84,7 +84,7 @@
     {
       "type": "shell",
       "label": "STM32Prog: Full chip erase",
-      "command": "STM32_Programmer_CLI.exe",
+      "command": "STM32_Programmer_CLI",
       "args": [
         "--connect",
         "port=swd",
